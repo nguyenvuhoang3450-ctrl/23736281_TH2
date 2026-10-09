@@ -19,8 +19,8 @@ export const VARIANT = {
     authField: LAST_DIGIT % 2 === 0 ? 'email' : 'phone', // 'phone'
     tabOrder: LAST_DIGIT >= 5 ? 'cartFirst' : 'shopFirst', // 'shopFirst'
     hapticOnAdd: LAST_DIGIT % 3 === 0 ? 'impact' : 'selection', // 'selection'
-    shipFormula: LAST_DIGIT % 2 === 0 ? 'A' : 'B', // 'B'
-    detailPresentation: LAST_DIGIT >= 5 ? 'modal' : 'card', // 'card'
+    shipFormula: LAST_DIGIT % 2 === 0 ? 'A' : 'B', 
+    detailPresentation: LAST_DIGIT >= 5 ? 'modal' : 'card', 
 } as const;
 
 export function examStamp(): string {
