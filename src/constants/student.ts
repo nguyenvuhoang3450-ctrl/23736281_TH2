@@ -15,10 +15,10 @@ export const ROOM_LABEL = `P.${100 + (STUDENT_SEED % 400)}`;
 export const BANNER_IMAGE_ID = 200 + (STUDENT_SEED % 150);
 
 export const VARIANT = {
-    watermarkAtTop: LAST_DIGIT % 2 === 0, // false -> Watermark ở dưới
-    authField: LAST_DIGIT % 2 === 0 ? 'email' : 'phone', // 'phone'
-    tabOrder: LAST_DIGIT >= 5 ? 'cartFirst' : 'shopFirst', // 'shopFirst'
-    hapticOnAdd: LAST_DIGIT % 3 === 0 ? 'impact' : 'selection', // 'selection'
+    watermarkAtTop: LAST_DIGIT % 2 === 0, 
+    authField: LAST_DIGIT % 2 === 0 ? 'email' : 'phone', 
+    tabOrder: LAST_DIGIT >= 5 ? 'cartFirst' : 'shopFirst', 
+    hapticOnAdd: LAST_DIGIT % 3 === 0 ? 'impact' : 'selection', 
     shipFormula: LAST_DIGIT % 2 === 0 ? 'A' : 'B', 
     detailPresentation: LAST_DIGIT >= 5 ? 'modal' : 'card', 
 } as const;
