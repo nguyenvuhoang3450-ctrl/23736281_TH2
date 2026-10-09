@@ -3,23 +3,24 @@ export const STUDENT = {
     hoTen: 'NGUYEN VU HOANG',
 } as const;
 
-export const LAST_DIGIT = 1;
-export const STUDENT_SEED = 281;
+const soCuoi = Number(STUDENT.mssv.slice(-1));
+export const LAST_DIGIT = soCuoi; // Sẽ là 1
+export const STUDENT_SEED = parseInt(STUDENT.mssv.slice(-3), 10) || 1; // Sẽ là 281
 
-export const DEBOUNCE_MS = 400; // 300 + 1 * 100
-export const STALE_TIME_MS = 11000; // 10000 + 1 * 1000
-export const PRICE_MULTIPLIER = 15500; // 15000 + 1 * 500
-export const BASE_SHIP_FEE = 9000; // 8000 + 1 * 1000
-export const ROOM_LABEL = 'P.381'; // 100 + 281
-export const BANNER_IMAGE_ID = 331;
+export const DEBOUNCE_MS = 300 + (STUDENT_SEED % 5) * 100;
+export const STALE_TIME_MS = 10_000 + (STUDENT_SEED % 20) * 1000;
+export const PRICE_MULTIPLIER = 15000 + (STUDENT_SEED % 40) * 500;
+export const BASE_SHIP_FEE = 8000 + (STUDENT_SEED % 10) * 1000;
+export const ROOM_LABEL = `P.${100 + (STUDENT_SEED % 400)}`;
+export const BANNER_IMAGE_ID = 200 + (STUDENT_SEED % 150);
 
 export const VARIANT = {
-    watermarkAtTop: false,
-    authField: 'phone',
-    tabOrder: 'shopFirst',
-    hapticOnAdd: 'selection',
-    shipFormula: 'B',
-    detailPresentation: 'card',
+    watermarkAtTop: LAST_DIGIT % 2 === 0, // false -> Watermark ở dưới
+    authField: LAST_DIGIT % 2 === 0 ? 'email' : 'phone', // 'phone'
+    tabOrder: LAST_DIGIT >= 5 ? 'cartFirst' : 'shopFirst', // 'shopFirst'
+    hapticOnAdd: LAST_DIGIT % 3 === 0 ? 'impact' : 'selection', // 'selection'
+    shipFormula: LAST_DIGIT % 2 === 0 ? 'A' : 'B', // 'B'
+    detailPresentation: LAST_DIGIT >= 5 ? 'modal' : 'card', // 'card'
 } as const;
 
 export function examStamp(): string {
